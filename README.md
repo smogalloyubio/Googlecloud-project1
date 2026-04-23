@@ -186,37 +186,22 @@ Google Cloud Artifact Registry
 ![artifact registry](https://github.com/smogalloyubio/02-Devops-project-NetflixClone-app/blob/main/picture/Screenshot%202026-01-24%20at%2011.11.50.png)
 
 ---
+## Step 4: Kubernetes Namespace Configuration
+After provisioning the GKE cluster using Terraform, the Kubernetes environment was configured by creating dedicated namespaces to organize and isolate workloads within the cluster.
+- Namespace Strategy: To  follow best practices in Kubernetes resource management, multiple namespaces were created:
+- argocd → Dedicated namespace for Argo CD installation and GitOps control plane
+- dev → Application namespace used for deploying the web application
+This separation ensures clear isolation between platform tools and application workloads,  and improved security and access control  for better organization of cluster resources
 
-### Step 4: Configure Kubernetes Manifests
-
-* Define Kubernetes YAML manifests:
-
-  * Namespace
-  * Deployment
-  * Service
- 
-
-Apply namespace locally (optional validation):
-
-```bash
-gcloud container clusters create netflix-cluster \
-    --project=Porject_id \
-    --zone=us-central1-a \
-    --num-nodes=2 \
-    --machine-type=e2-standard-2 \
-    --enable-ip-alias \
-    --release-channel=regular \
-    --workload-pool=project_id.svc.id.goog \
-    --scopes="https://www.googleapis.com/auth/cloud-platform"
-kubectl crate namespace  dev 
- kubectl get nodes
- kubectl  get namespace  --all-namespace
-kubectl  config  get-context
+```
+kubectle  --version
+kubectl  crate namespacc argocd
+kubectl create namespace dev
+kubectl get nodes -o wide
+kubectl  get namespace --all-namespaces
 
 ```
 ![Google kubernstes cluster](https://github.com/smogalloyubio/02-Devops-project-NetflixClone-app/blob/main/picture/Screenshot%202026-01-24%20at%2012.33.10.png)
-
-
 
 ---
 
