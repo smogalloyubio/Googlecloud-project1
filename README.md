@@ -75,22 +75,9 @@ This project is built on a modern cloud-native technology stack designed for per
 | Argo CD | GitOps Continuous Delivery | Declarative and automated Kubernetes deployments |
 | Velero | Kubernetes Backup & Restore | Disaster recovery and cluster data protection |
 | GitHub Actions | CI/CD Automation | Automated build, test, and deployment pipelines |
-| Kubernetes | Container Orchestration | Scalability, high availability, and self-healing workloads |
----
-
-## Key Features
-
-* **Infrastructure as Code**: GKE provisioned using Terraform
-* **CI Pipeline**: Automated Docker image build and push via GitHub Actions
-* **GitOps Deployment**: Argo CD synchronizes cluster state from GitHub
-* **Namespace Isolation**: Application deployed in a dedicated namespace
-* **Disaster Recovery**: Velero backups stored in GCS
-* **Recovery Validation**: Namespace or cluster deletion followed by restore
-* **Resource Optimization**: Manual CPU patching for small-node environments
-* **Security**: Dedicated service accounts and least-privilege IAM roles
+| Kubernetes | Container Orchestration | Scalability, high availability, and self-healing workloads 
 
 ---
-
 ##  Workflow
 
 1. Terraform provisions GKE infrastructure
