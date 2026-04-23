@@ -1,38 +1,39 @@
-# Netflix Clone on GKE – GitOps CI/CD & Disaster Recovery
-
+## Cloud-Native Web Application on GKE – GitOps CI/CD & Disaster Recovery
 ## Project Overview
-This project demonstrates a **production-ready CI/CD and Disaster Recovery (DR) workflow** by deploying a Netflix Clone application on **Google Kubernetes Engine (GKE)** using 
-**GitOps principles**.
-The solution automates infrastructure provisioning, container image delivery, application deployment, and disaster recovery. It is designed to simulate real-world DevOps challenges such as cluster failures, human error during deployments, and the need for fast, reliable recovery.
+This project demonstrates a production-grade CI/CD and Disaster Recovery (DR) pipeline for deploying a cloud-native web application on Google Kubernetes Engine (GKE) using GitOps principles.
+The solution automates the full application lifecycle, including infrastructure provisioning, container image build and delivery, Kubernetes deployment, and full cluster backup and recovery.
+It simulates real-world DevOps scenarios such as infrastructure failures, deployment errors, and data loss, while ensuring the system can be rapidly and reliably restored with minimal downtime.
 
 ---
+## Problem Statement Modern application development and deployment often face challenges such as complexity, inconsistent environments, and a lack of standardized best practices. Teams struggle to achieve fast iteration cycles while maintaining stability between development and production environments. In addition, building scalable and resilient infrastructure often requires significant manual effort and fragmented tooling.
 
-##  Problem Statement
-
-Traditional manual deployments introduce several risks:
-
-* Human error during application or infrastructure changes
-* Lack of version control for Kubernetes manifests and infrastructure
-* Difficult and slow recovery from namespace or cluster failures
-
-This project addresses those problems by:
-
-* Automating infrastructure provisioning
-* Using Git as the single source of truth
-* Implementing a tested disaster recovery strategy
-
+- Traditional deployment approaches introduce several risks, including:
+- Human error during application or infrastructure changes
+- Lack of version control for Kubernetes manifests and infrastructure
+- Slow and unreliable recovery from system or namespace failures
+These challenges create a gap between development speed and operational reliability, leading to delays, misconfigurations, and increased operational costs.
 ---
 
-## Project Goals
+ ## Problem Solution 
+ This project provides a cloud-native DevOps framework that addresses these challenges through automation and declarative infrastructure principles.
+By combining modern practices such as:
+- TypeScript-based full-stack application development
+- Containerization using Docker
+- Infrastructure as Code (Terraform)
+- CI/CD automation
+- GitOps-based deployments
+- Disaster recovery with Kubernetes backups
+The solution delivers a streamlined and reliable workflow from code to deployment to recovery, allowing teams to focus on building features while ensuring operational excellence, scalability, and resilience.
+---
 
-* Automate deployment of a containerized application
-* Provision GKE infrastructure using Infrastructure as Code (IaC)
-* Implement GitOps-based continuous delivery with Argo CD
-* Store and version Kubernetes manifests in GitHub
-* Push Docker images to Google Artifact Registry
-* Back up and restore Kubernetes resources and persistent data
-* Validate recovery by deleting and restoring a namespace or cluster
-
+## Key Features
+- Full-Stack Cloud-Native Architecture: A modern web application built with a React (Vite) frontend and scalable backend services, designed for performance, modularity, and responsiveness.
+- Containerized Development & Deployment: Uses Docker to ensure consistent environments across development, testing, and production, eliminating configuration drift and simplifying deployments.
+- Infrastructure as Code (IaC): Cloud infrastructure is fully defined and managed using Terraform, enabling automated, repeatable, and version-controlled provisioning of resources.
+- Automated CI/CD & GitOps Delivery: GitHub Actions automates the build and deployment pipeline, while Argo CD provides continuous GitOps-based synchronization of Kubernetes manifests for reliable and declarative deployments.
+- Disaster Recovery Ready: Integrated with Velero to enable backup and restore of Kubernetes resources, ensuring resilience and fast recovery in case of system failure or data loss.
+- Type-Safe Development: Built using TypeScript to improve code quality, maintainability, and scalability across the application.
+- Cloud-Native Architecture: Designed for Kubernetes-based cloud environments with a focus on scalability, fault tolerance, and microservices principles.m
 ---
 
 ##  Architecture Overview
@@ -56,21 +57,23 @@ This project addresses those problems by:
 * Restore tested after deletion
 
 ---
+## 🧱 Technical Architecture
 
-## Technologies Used
+This project is built on a modern cloud-native technology stack designed for performance, scalability, and maintainability.
 
-| Category           | Tools                          |
-| ------------------ | ------------------------------ |
-| Cloud              | Google Cloud Platform (GCP)    |
-| Kubernetes         | Google Kubernetes Engine (GKE) |
-| IaC                | Terraform                      |
-| CI                 | GitHub Actions                 |
-| GitOps             | Argo CD                        |
-| Container Registry | Google Artifact Registry       |
-| Backup & DR        | Velero + GCS                   |
-| Version Control    | Git & GitHub                   |
-| Security           | Service Accounts & IAM         |
+### ⚙️ Core Technologies
 
+| Technology | Purpose | Key Benefit |
+|------------|--------|-------------|
+| TypeScript | Primary Development Language | Strong type safety, improved code quality, and maintainability |
+| Node.js | Backend Runtime Environment | High-performance and scalable server-side execution |
+| React / Vite | Frontend Framework / Build Tool | Fast UI rendering and rapid development experience |
+| Docker | Containerization | Consistent environments across development and production |
+| Terraform | Infrastructure as Code (IaC) | Automated, repeatable, and version-controlled infrastructure provisioning |
+| Argo CD | GitOps Continuous Delivery | Declarative and automated Kubernetes deployments |
+| Velero | Kubernetes Backup & Restore | Disaster recovery and cluster data protection |
+| GitHub Actions | CI/CD Automation | Automated build, test, and deployment pipelines |
+| Kubernetes | Container Orchestration | Scalability, high availability, and self-healing workloads |
 ---
 
 ## Key Features
