@@ -176,18 +176,14 @@ CI Pipeline Workflow
 - IAM roles were assigned (Artifact Registry Writer permissions)
 - Credentials were securely stored in GitHub Secrets
 - GitHub Actions authenticated using the service account key
-
-```text
-REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG
-```
+----
+## Gitaction workflow 
 
 **![Gitaction pipeline](https://github.com/smogalloyubio/02-Devops-project-NetflixClone-app/blob/main/picture/Screenshot%202026-01-24%20at%2011.12.05.png)**
 
-
-google cloud artifact registry 
+## Google artifact registry 
+Google Cloud Artifact Registry 
 ![artifact registry](https://github.com/smogalloyubio/02-Devops-project-NetflixClone-app/blob/main/picture/Screenshot%202026-01-24%20at%2011.11.50.png)
-
-
 
 ---
 
