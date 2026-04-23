@@ -5,7 +5,8 @@ The solution automates the full application lifecycle, including infrastructure 
 It simulates real-world DevOps scenarios such as infrastructure failures, deployment errors, and data loss, while ensuring the system can be rapidly and reliably restored with minimal downtime.
 
 ---
-## Problem Statement Modern application development and deployment often face challenges such as complexity, inconsistent environments, and a lack of standardized best practices. Teams struggle to achieve fast iteration cycles while maintaining stability between development and production environments. In addition, building scalable and resilient infrastructure often requires significant manual effort and fragmented tooling.
+## Problem Statement
+Modern application development and deployment often face challenges such as complexity, inconsistent environments, and a lack of standardized best practices. Teams struggle to achieve fast iteration cycles while maintaining stability between development and production environments. In addition, building scalable and resilient infrastructure often requires significant manual effort and fragmented tooling.
 
 - Traditional deployment approaches introduce several risks, including:
 - Human error during application or infrastructure changes
@@ -37,6 +38,7 @@ The solution delivers a streamlined and reliable workflow from code to deploymen
 ---
 
 ##  Architecture Overview
+![Architecture Diagram]()
 
 **Infrastructure Layer**
 
