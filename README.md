@@ -38,7 +38,7 @@ The solution delivers a streamlined and reliable workflow from code to deploymen
 ---
 
 ##  Architecture Overview
-![Architecture Diagram]()
+![Architecture Diagram](https://github.com/smogalloyubio/Googlecloud-project1/blob/main/picture/Database%20ER%20diagram%20(crow's%20foot).png)
 
 **Infrastructure Layer**
 
