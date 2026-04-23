@@ -104,23 +104,15 @@ Ensure you have the following installed and configured:
 * kubectl
 * Git
 * GitHub account
-
-Authenticate with GCP:
-
-```bash
-gcloud auth login
-gcloud config set project <PROJECT_ID>
-gcloud  auth  application-deafult login 
-```
-
 ---
+The first step was to prepare a containerized infrastructure environment for provisioning cloud resources using Terraform.
+Instead of installing tools locally, I created a Docker-based environment that includes:
+Terraform
+Google Cloud CLI (gcloud)
+Required dependencies for infrastructure provisioning
 
-### Step 2: Provision GKE with Terraform
-
-1. Navigate to the Terraform directory:
-
-```bash
-
+```
+terraform and gcloud script
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 
 
@@ -135,32 +127,55 @@ sudo tee /etc/apt/sources.list.d/hashicorp.list
 
 
 sudo apt-get update && sudo apt-get install terraform
-
-cd terraform
-
-terraform init
-terraform apply
+## docker command 
+docker build -t my-terraform-script .
+docker tag my-terraform-script:latest rukevweubio/my-terraform-script:latest
+docker  login
+docker push  rukevwe/my-terraformscript:
+## run the docker script
+docker run -it  -v $(pwd):/workspace -w /workspace rukevweubio/my-terraformscript:latest
 
 ```
 
-Terraform provisions:
 
+---
+After setting up the Docker workspace environment, the next step was to authenticate securely with Google Cloud so that Terraform could interact with GCP resources.
+Since all operations were executed inside a containerized workspace, authentication was performed using the Google Cloud SDK (gcloud).
+```
+gcloud auth login
+gcloud config set project <PROJECT_ID>
+gcloud  auth  application-deafult login
+terraform init
+terraform validate
+terraform apply -var-file=terraform.tfvars
+terraform apply -auto-approve -var-file=terraform.tfvars
+
+```
+---
+
+### Step 2: Provision GKE with Terraform
+
+Terraform provisions:
 * GKE cluster
 * Networking resources
 * Required IAM roles and service accounts
 
 **![Terraform  apply command](https://github.com/smogalloyubio/02-Devops-project-NetflixClone-app/blob/main/picture/Screenshot%202026-01-24%20at%2012.18.12.png):**
 
-
-
 ---
 
 ### Step 3: Build & Push Docker Image (CI Pipeline)
-
-* GitHub Actions workflow builds the Docker image
-* Image is tagged and pushed to Google Artifact Registry
-
-Example Artifact Registry image format:
+In this step, a CI/CD pipeline was implemented using GitHub Actions to automate the process of building and publishing the application container image.
+CI Pipeline Workflow
+- A GitHub Actions workflow was triggered on code changes (push or merge events)
+- The application source code was used to build a Docker image
+- The image was tagged with a versioned format for traceability
+- The container image was securely pushed to Google Artifact Registry
+- Secure Authentication to allow GitHub Actions to push images to Google Cloud:
+- A Google Cloud Service Account was created
+- IAM roles were assigned (Artifact Registry Writer permissions)
+- Credentials were securely stored in GitHub Secrets
+- GitHub Actions authenticated using the service account key
 
 ```text
 REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG
